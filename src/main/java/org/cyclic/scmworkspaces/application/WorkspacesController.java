@@ -18,7 +18,7 @@ public class WorkspacesController {
     @PostMapping
     public ResponseEntity<WorkspaceDTO> create(@RequestBody WorkspaceDTO body) {
         WorkspaceDTO response = workspaceService.create(body.name);
-        return new ResponseEntity<WorkspaceDTO>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PatchMapping("{workspaceId}")
@@ -27,12 +27,13 @@ public class WorkspacesController {
             @RequestBody RepoDTO body
     ) throws Exception {
         WorkspaceDTO response = workspaceService.addRepo(workspaceId, body);
-        return new ResponseEntity<WorkspaceDTO>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("{workspaceId}")
+    @CrossOrigin
     public ResponseEntity<WorkspaceDTO> findOne(@PathVariable String workspaceId) throws Exception {
         WorkspaceDTO response = workspaceService.findOne(workspaceId);
-        return new ResponseEntity<WorkspaceDTO>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

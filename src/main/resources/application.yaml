@@ -3,9 +3,8 @@ spring:
     name: "scm-workspaces"
   data:
     mongodb:
-      uri: mongodb+srv://admin:admin@cluster0.aocwr.mongodb.net/scmworkspaces?retryWrites=true&w=majority
-
+      uri: "${MONGODB_CONNECTION_STRING}"
 github-api:
   base-url: https://api.github.com
-  token: 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
+  token: "${GITHUB_API_TOKEN}"
 
